@@ -13,17 +13,10 @@ module.exports = Hix =
 		# register command that toggles this view
 		@subscriptions.add atom.commands.add 'atom-workspace', 'hix:toggle': => @toggle()
 
-		# register our view provider
-		atom.views.addViewProvider HixEditor, HixEditor.dispenseViewProvider
-
 	deactivate: ->
 		@subscriptions.dispose()
 
 	serialize: -> {}
-
-	hasTextEditor: (pane) ->
-		return true for item in pane.getItems() when item instanceof TextEditor
-		return false
 
 	toggle: ->
 		pane = atom.workspace.getActivePane();
@@ -32,18 +25,8 @@ module.exports = Hix =
 		activeItem = pane.getActiveItem()
 		index = pane.getActiveItemIndex()
 		if activeItem.getText? # DepCop suggests this is the correct way (lol js)
-			hixEditor = new HixEditor activeItem
-
-			# Pane will active the previous item when an item is removed
-			pane.addItem hixEditor, index
-
-			# We "moved" it (so it doesn't get destroyed)
-			pane.removeItem activeItem, yes
-			atom.workspace.paneContainer.removedPaneItem activeItem # hax
-		else if activeItem instanceof HixEditor
-			textEditor = activeItem.getEditor()
-
-			pane.addItem textEditor, index
-
-			# This time, dispose of it.
-			pane.removeItem activeItem, no
+			if activeItem.hixEditor?
+				activeItem.hixEditor.revert()
+				delete activeItem.hixEditor
+			else
+				activeItem.hixEditor = new HixEditor activeItem
