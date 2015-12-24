@@ -1,0 +1,25 @@
+{
+  "name": "hix",
+  "main": "./lib/hix",
+  "version": "0.0.0",
+  "author": "Josh Junon (https://github.com/qix-)",
+  "description": "A hex editor for Atom",
+  "keywords": [
+      "hex",
+      "editor",
+      "binary",
+      "hexadecimal",
+      "edit",
+      "dump"
+  ],
+  "activationCommands": {
+    "atom-workspace": "hix:toggle"
+  },
+  "repository": "https://github.com/qix-/hix",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}
