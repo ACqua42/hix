@@ -29,14 +29,18 @@ hix-editor {
 		}
 	}
 
+
+	.zero {
+		color: @syntax-gutter-text-color // because Atom doesn't have a syntax-comment variable...
+	}
+
+
 	bytes {
 		height: 100%;
-		margin-right: 5px;
+		margin-right: 10px;
 		padding: @component-padding;
 		display: inline-block;
 		color: @syntax-text-color;
-		position: absolute;
-		float: left;
 
 		byte-row {
 			display: block;
@@ -45,12 +49,24 @@ hix-editor {
 				padding: 1px 5px;
 			}
 
-			.zero {
-				color: @syntax-gutter-text-color // because Atom doesn't have a syntax-comment variable...
-			}
-
 			byte:nth-of-type(8) {
 				padding-right: 10px;
+			}
+		}
+	}
+
+	ascii {
+		height: 100%;
+		padding: @component-padding;
+		display: inline-block;
+		color: @syntax-text-color;
+
+		ascii-row {
+			display: block;
+
+			char {
+				width: 8px;
+				display: inline-block;
 			}
 		}
 	}

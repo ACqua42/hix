@@ -1,5 +1,6 @@
 HixOffsetsView = require './hix-offsets-view'
 HixBytesView = require './hix-bytes-view'
+HixTextView = require './hix-text-view'
 
 module.exports = class HixEditorView
 	constructor: (@editor, @textEditor) ->
@@ -33,6 +34,8 @@ module.exports = class HixEditorView
 
 		@offsets = new HixOffsetsView @
 		@bytes = new HixBytesView @
+		@text = new HixTextView @
 
 		@dom.appendChild @offsets.getElement()
 		@dom.appendChild @bytes.getElement()
+		@dom.appendChild @text.getElement()
