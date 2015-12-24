@@ -4,7 +4,26 @@
 // for a full listing of what's available.
 @import "ui-variables";
 
+@component-padding: 5px;
+
 hix-editor {
 	width: 100%;
 	height: 100%;
+	background: @syntax-background-color;
+	overflow: auto;
+
+	offsets {
+		height: 100%;
+		margin-right: 20px;
+		padding: @component-padding 15px;
+		display: inline-block;
+		background: @syntax-gutter-background-color;
+		color: @syntax-gutter-text-color;
+
+		offset {
+			display: block;
+			-webkit-user-select: none;
+			cursor: default;
+		}
+	}
 }

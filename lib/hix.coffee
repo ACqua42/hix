@@ -2,8 +2,6 @@
 HixEditor = require './hix-editor'
 
 module.exports = Hix =
-	hixView: null
-	modalPanel: null
 	subscriptions: null
 
 	activate: (state) ->
@@ -29,4 +27,4 @@ module.exports = Hix =
 				activeItem.hixEditor.revert()
 				delete activeItem.hixEditor
 			else
-				activeItem.hixEditor = new HixEditor activeItem
+				activeItem.hixEditor = new HixEditor activeItem, pane
