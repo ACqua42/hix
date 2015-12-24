@@ -27,6 +27,11 @@ hix-editor {
 			display: block;
 			cursor: default;
 		}
+
+		offset:nth-of-type(16n) {
+			border-bottom: 2px dotted @syntax-indent-guide-color;
+			margin-bottom: 2px;
+		}
 	}
 
 
@@ -53,6 +58,10 @@ hix-editor {
 				padding-right: 10px;
 			}
 		}
+
+		byte-row:nth-of-type(16n) {
+			margin-bottom: 3px;
+		}
 	}
 
 	ascii {
@@ -68,6 +77,10 @@ hix-editor {
 				width: 8px;
 				display: inline-block;
 			}
+		}
+
+		ascii-row:nth-of-type(16n) {
+			margin-bottom: 3px;
 		}
 	}
 }
