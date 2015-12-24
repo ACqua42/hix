@@ -2,7 +2,7 @@
 'context-menu':
 	'atom-text-editor': [
 		{
-			'label': 'Toggle hix'
+			'label': 'Toggle Hex View'
 			'command': 'hix:toggle'
 		}
 	]
@@ -10,10 +10,10 @@
 	{
 		'label': 'Packages'
 		'submenu': [
-			'label': 'hix'
+			'label': 'Hix'
 			'submenu': [
 				{
-					'label': 'Toggle'
+					'label': 'Toggle Hex Editor'
 					'command': 'hix:toggle'
 				}
 			]
