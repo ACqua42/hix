@@ -1,7 +1,6 @@
 module.exports = class HixOffsetsView
 	constructor: (@editorView) ->
 		@dom = document.createElement 'offsets'
-
 		@reloadDom()
 
 	getElement: -> @dom

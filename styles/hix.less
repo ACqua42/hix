@@ -11,19 +11,47 @@ hix-editor {
 	height: 100%;
 	background: @syntax-background-color;
 	overflow: auto;
+	-webkit-user-select: none;
 
 	offsets {
 		height: 100%;
-		margin-right: 20px;
-		padding: @component-padding 15px;
+		margin-right: 10px;
+		padding: @component-padding 10px;
 		display: inline-block;
 		background: @syntax-gutter-background-color;
 		color: @syntax-gutter-text-color;
+		float: left;
+		left: 0px;
 
 		offset {
 			display: block;
-			-webkit-user-select: none;
 			cursor: default;
+		}
+	}
+
+	bytes {
+		height: 100%;
+		margin-right: 5px;
+		padding: @component-padding;
+		display: inline-block;
+		color: @syntax-text-color;
+		position: absolute;
+		float: left;
+
+		byte-row {
+			display: block;
+
+			byte {
+				padding: 1px 5px;
+			}
+
+			.zero {
+				color: @syntax-gutter-text-color // because Atom doesn't have a syntax-comment variable...
+			}
+
+			byte:nth-of-type(8) {
+				padding-right: 10px;
+			}
 		}
 	}
 }

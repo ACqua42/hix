@@ -1,4 +1,5 @@
 HixOffsetsView = require './hix-offsets-view'
+HixBytesView = require './hix-bytes-view'
 
 module.exports = class HixEditorView
 	constructor: (@editor, @textEditor) ->
@@ -15,7 +16,7 @@ module.exports = class HixEditorView
 		@dom.parentNode?.replaceChild @textEditorView, @dom
 		@textEditorView.focus()
 	show: -> @dom.style.display = null
-	hide: -> @dom.style.display = 'none'
+	hide: -> @dom.style.display = 'none' if @dom.style.display isnt 'none'
 
 	hookupEvents: ->
 
@@ -30,8 +31,8 @@ module.exports = class HixEditorView
 	reloadDom: ->
 		@dom.innerHTML = '';
 
-		@offsets = @createOffsets()
+		@offsets = new HixOffsetsView @
+		@bytes = new HixBytesView @
 
 		@dom.appendChild @offsets.getElement()
-
-	createOffsets: -> new HixOffsetsView @
+		@dom.appendChild @bytes.getElement()
