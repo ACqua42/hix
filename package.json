@@ -13,7 +13,7 @@
       "dump"
   ],
   "activationCommands": {
-    "atom-workspace": "hix:toggle"
+    "atom-workspace": ["hix:toggle", "hix:open"]
   },
   "repository": "https://github.com/qix-/hix",
   "license": "MIT",

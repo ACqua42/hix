@@ -11,6 +11,12 @@
 			'label': 'Normal Editor View',
 			'command': 'hix:toggle'
 		}
+	],
+	'li[is="tree-view-file"]': [
+		{
+			'label': 'Open in Hex Editor',
+			'command': 'hix:open'
+		}
 	]
 'menu': [
 	{
