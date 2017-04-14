@@ -11,10 +11,11 @@ module.exports = class HixTextView
 		buffer = @editorView.editor.buffer
 		curRow = null
 
+		addRow = => @dom.appendChild curRow
+
 		for byte, i in buffer
 			if (i % 16) is 0
-				if i > 0
-					@dom.appendChild curRow
+				addRow() if i > 0
 				curRow = document.createElement 'ascii-row'
 
 			charString = @getCharacterString byte
@@ -25,6 +26,8 @@ module.exports = class HixTextView
 
 			charElem.appendChild document.createTextNode charString
 			curRow.appendChild charElem
+
+		addRow() if buffer.length % 16 isnt 0
 
 	isVisibleChar: (char) -> 32 <= char <= 126
 

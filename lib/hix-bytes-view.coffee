@@ -11,10 +11,11 @@ module.exports = class HixByteView
 		buffer = @editorView.editor.buffer
 		curRow = null
 
+		addRow = => @dom.appendChild curRow
+
 		for byte, i in buffer
 			if (i % 16) is 0
-				if i > 0
-					@dom.appendChild curRow
+				addRow() if i > 0
 				curRow = document.createElement 'byte-row'
 
 			byteString = byte.toString(16).toUpperCase()
@@ -27,6 +28,6 @@ module.exports = class HixByteView
 			byteElem.appendChild document.createTextNode byteString
 			curRow.appendChild byteElem
 
-	stylizeByte: (elem, byte, offset) ->
-		if byte is 0
-			elem.classList.add 'zero'
+		addRow() if buffer.length % 16 isnt 0
+
+	stylizeByte: (elem, byte, offset) -> elem.classList.add 'zero' if byte is 0
