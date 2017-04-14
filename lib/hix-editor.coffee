@@ -1,4 +1,4 @@
-{CompositeDisposable} = require 'event-kit'
+{CompositeDisposable} = require 'atom'
 HixEditorView = require './hix-editor-view'
 fs = require 'fs' # because Atom doesn't like binary stuff and only stores text, which is incorrect
 
