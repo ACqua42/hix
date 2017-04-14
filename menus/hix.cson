@@ -2,7 +2,13 @@
 'context-menu':
 	'atom-text-editor': [
 		{
-			'label': 'Toggle Hex View'
+			'label': 'Hex Editor View'
+			'command': 'hix:toggle'
+		}
+	],
+	'hix-editor': [
+		{
+			'label': 'Normal Editor View',
 			'command': 'hix:toggle'
 		}
 	]
