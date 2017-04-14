@@ -18,11 +18,14 @@ module.exports = Hix =
 
 	toggle: ->
 		pane = atom.workspace.getActivePane();
+		if not pane
+			console.log 'not pane'
+			return
 		return if not pane
 
 		activeItem = pane.getActiveItem()
 		index = pane.getActiveItemIndex()
-		if activeItem.getText? # DepCop suggests this is the correct way (lol js)
+		if activeItem.getText? || activeItem.getPath?
 			if activeItem.hixEditor?
 				activeItem.hixEditor.revert()
 				delete activeItem.hixEditor
